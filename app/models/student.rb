@@ -19,8 +19,9 @@ class Student < ActiveRecord::Base
     if query == ''
       self.all
     else
+      q = query.to_s
       Student.all.each do |s|
-        if s.name.downcase.include?(query)
+        if s.name.downcase.include?(q)
           array << s
         end
       end
